@@ -1,4 +1,37 @@
 package com.spring.rest.controller;
 
-public class UserRestController {
+import com.spring.rest.mapper.UserMapper;
+import com.spring.rest.model.User;
+import com.spring.rest.service.UserService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.spring.rest.controller.api.UsersApi;
+import com.spring.rest.controller.dto.UserDto;
+
+@RestController
+@CrossOrigin(exposedHeaders = "errors, content-type")
+@RequestMapping("api")
+public class UserRestController implements UsersApi {
+
+    private final UserService userService;
+    private final UserMapper userMapper;
+
+    public UserRestController(UserService userService, UserMapper userMapper) {
+        this.userService = userService;
+        this.userMapper = userMapper;
+    }
+
+    @PreAuthorize( "hasRole(@roles.ADMIN)" )
+    public ResponseEntity<UserDto> addUser(UserDto userDto) {
+        HttpHeaders headers = new HttpHeaders();
+        User user = userMapper.toUser(userDto);
+        this.userService.saveUser(user);
+        return new ResponseEntity<>(userMapper.toUserDto(user), headers, HttpStatus.CREATED);
+    }
+
 }

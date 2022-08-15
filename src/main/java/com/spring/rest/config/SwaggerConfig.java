@@ -54,7 +54,7 @@ public class SwaggerConfig {
                     throw new IllegalStateException(e);
                 }
             }
-        }
+        };
     }
 
 }
