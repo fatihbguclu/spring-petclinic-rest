@@ -1,19 +1,17 @@
 package com.spring.rest.mapper;
 
+import com.spring.rest.dto.VetDto;
 import com.spring.rest.model.Vet;
-import com.spring.rest.controller.dto.VetDto;
-import com.spring.rest.controller.dto.VetFieldsDto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.Collection;
 
 @Mapper
 public interface VetMapper {
-    Vet toVet(VetDto vetDto);
 
-    Vet toVet(VetFieldsDto vetFieldsDto);
+    Vet toVet(VetDto vetDto);
 
     VetDto toVetDto(Vet vet);
 
-    Collection<VetDto> toVetDtos(Collection<Vet> vets);
 }

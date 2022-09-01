@@ -1,5 +1,6 @@
 package com.spring.rest.controller;
 
+import com.spring.rest.dto.UserDto;
 import com.spring.rest.mapper.UserMapper;
 import com.spring.rest.model.User;
 import com.spring.rest.service.UserService;
@@ -10,13 +11,11 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.spring.rest.controller.api.UsersApi;
-import com.spring.rest.controller.dto.UserDto;
 
 @RestController
 @CrossOrigin(exposedHeaders = "errors, content-type")
 @RequestMapping("api")
-public class UserRestController implements UsersApi {
+public class UserRestController {
 
     private final UserService userService;
     private final UserMapper userMapper;
