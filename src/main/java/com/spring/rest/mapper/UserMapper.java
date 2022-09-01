@@ -6,7 +6,7 @@ import com.spring.rest.model.Role;
 import com.spring.rest.model.User;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface UserMapper {
 
     Role toRole(RoleDto roleDto);

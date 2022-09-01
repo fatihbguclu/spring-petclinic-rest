@@ -1,6 +1,7 @@
 package com.spring.rest.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -9,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import javax.sql.DataSource;
 
 @Configuration
+@ConditionalOnProperty(name = "petclinic.security.enable", havingValue = "true")
 public class BasicAuthConfig extends WebSecurityConfigurerAdapter {
 
 
