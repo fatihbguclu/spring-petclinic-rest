@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 import java.util.Collection;
 
-@Mapper(uses = PetMapper.class)
+@Mapper(uses = PetMapper.class, componentModel = "spring")
 public interface VisitMapper {
 
     Visit toVisit(VisitDto visitDto);

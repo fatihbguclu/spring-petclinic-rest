@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 import java.util.Collection;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface VetMapper {
 
     Vet toVet(VetDto vetDto);

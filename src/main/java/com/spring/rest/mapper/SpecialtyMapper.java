@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 
 import java.util.Collection;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SpecialtyMapper {
 
     Specialty toSpecialty(SpecialtyDto specialtyDto);

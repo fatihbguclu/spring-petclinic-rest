@@ -4,7 +4,7 @@ import com.spring.rest.dto.PetTypeDto;
 import com.spring.rest.model.PetType;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PetTypeMapper {
 
     PetType toPetType(PetTypeDto petTypeDto);

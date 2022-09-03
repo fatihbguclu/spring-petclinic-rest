@@ -9,7 +9,7 @@ import org.mapstruct.Mapping;
 
 import java.util.Collection;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PetMapper {
 
     @Mapping(source = "owner.id", target = "ownerId")
